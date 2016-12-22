@@ -6,9 +6,12 @@ import org.testng.annotations.Test;
 import org.testng.annotations.BeforeTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 
 public class WalletHubReview {
@@ -24,10 +27,16 @@ public class WalletHubReview {
 		
 		
 		// 3. select 5 starts
+		selectStars(5);
 		
 		
-		// 4. select health & review & submit & verify
-		
+		// 4. select health & write a review message & submit & verify
+		verifyCurrentScreenIsReviewScreen();
+		selectHealth();
+		Thread.sleep(1000); //wait till page is loaded
+		writeAReviewMessage(WalletHubElements.MESSAGE);
+		clickSubmit();
+		verifyMessageAfterPosted(WalletHubElements.MESSAGE);
 		
 		
 		Thread.sleep(5000);
@@ -50,16 +59,84 @@ public class WalletHubReview {
 		driver.close();
 	}
 	
-	// 
+	// 4. select health & review & submit & verify
+	private void verifyCurrentScreenIsReviewScreen(){
+		new WebDriverWait(driver, WalletHubElements.TIMEOUT).until(ExpectedConditions.presenceOfElementLocated(By.xpath(WalletHubElements.REVIEW_SELECTPOLICY)));
+		new WebDriverWait(driver, WalletHubElements.TIMEOUT).until(ExpectedConditions.presenceOfElementLocated(By.xpath(WalletHubElements.REVIEW_MESSAGE)));
+		new WebDriverWait(driver, WalletHubElements.TIMEOUT).until(ExpectedConditions.presenceOfElementLocated(By.xpath(WalletHubElements.REVIEW_SUBMIT)));
 	
-	private void verifyCurrentScreenIsProfileScreen(){
-		new WebDriverWait(driver, WalletHubElements.TIMEOUT).until(ExpectedConditions.presenceOfElementLocated(By.xpath(WalletHubElements.HOME_RATING_UNSELECTED)));
+	}
+	
+	private void selectHealth(){
+		
+		try{
+			driver.findElement(By.xpath(WalletHubElements.REVIEW_SELECTPOLICY)).click();
+			WebElement healthItem = new WebDriverWait(driver, WalletHubElements.TIMEOUT).until(ExpectedConditions.presenceOfElementLocated(By.xpath(WalletHubElements.REVIEW_POLICY_HEALTH)));
+			healthItem.click();
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	
+	}
+	
+	private void writeAReviewMessage(String reviewMessage){
+		try{
+			WebElement reviewMessageElement = new WebDriverWait(driver, WalletHubElements.TIMEOUT).until(ExpectedConditions.presenceOfElementLocated(By.xpath(WalletHubElements.REVIEW_MESSAGE)));
+			reviewMessageElement.sendKeys(reviewMessage);
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+	
+	private void clickSubmit(){
+		try{
+			driver.findElement(By.xpath(WalletHubElements.REVIEW_SUBMIT)).click();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 	
 	
+	private void verifyMessageAfterPosted(String message){
+		try{
+			WebElement reviewMessageElement = new WebDriverWait(driver, WalletHubElements.TIMEOUT).until(ExpectedConditions.presenceOfElementLocated(By.xpath(WalletHubElements.REVIEW_MESSAGE_RECORDED)));
+			String currentText = reviewMessageElement.getText();
+			Assert.assertEquals(currentText, message);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
 	
 	
-	// Sign In
+	// 3. select 5 starts 
+	private void selectStars(int numberOfStars){
+		try{
+			// 1. hover
+			WebElement ratingUnselected = new WebDriverWait(driver, WalletHubElements.TIMEOUT).until(ExpectedConditions.presenceOfElementLocated(By.xpath(WalletHubElements.HOME_RATING_UNSELECTED)));
+			Actions action = new Actions(driver);
+			action.moveToElement(ratingUnselected).build().perform();
+			WebElement rating5Stars = new WebDriverWait(driver, WalletHubElements.TIMEOUT).until(ExpectedConditions.presenceOfElementLocated(By.xpath(WalletHubElements.HOME_RATING_5STARTS)));
+			
+			// 2. click on number of stars
+			switch (numberOfStars) {
+			case 5:
+				rating5Stars.click();
+				break;
+			default:
+				System.out.println("Not implemented");
+				break;
+			}
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
+	}
+	
+	
+	// 1. Sign In
 	private void signInWalletHub(String username, String password){
 		verifyCurrentScreenIsLogInScreen();
 		inputEmailAddress(username);
@@ -103,9 +180,9 @@ public class WalletHubReview {
 	}
 	
 	private void verifyLoginSuccessful(){
-		new WebDriverWait(driver, WalletHubElements.TIMEOUT).until(ExpectedConditions.not(ExpectedConditions.presenceOfElementLocated(By.xpath(WalletHubElements.LOGIN_EMAILADDRESS))));
-		new WebDriverWait(driver, WalletHubElements.TIMEOUT).until(ExpectedConditions.not(ExpectedConditions.presenceOfElementLocated(By.xpath(WalletHubElements.LOGIN_PASSWORD))));
-		new WebDriverWait(driver, WalletHubElements.TIMEOUT).until(ExpectedConditions.not(ExpectedConditions.presenceOfElementLocated(By.xpath(WalletHubElements.LOGIN_LOGIN))));
+		new WebDriverWait(driver, 10).until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(WalletHubElements.LOGIN_EMAILADDRESS)));
+		new WebDriverWait(driver, 10).until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(WalletHubElements.LOGIN_PASSWORD)));
+		new WebDriverWait(driver, 10).until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(WalletHubElements.LOGIN_LOGIN)));
 	}
 	
 	

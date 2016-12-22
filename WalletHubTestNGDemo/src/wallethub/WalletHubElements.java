@@ -8,6 +8,8 @@ public class WalletHubElements {
 	public static final String USERNAME = "test_inscomp@evolutionfinance.com";
 	public static final String PASSWORD = "Abcd123*";
 	public static final long TIMEOUT = 10;
+	public static final String MESSAGE = "\"write some random text (minimum of 200 characters).write some random text (minimum of 200 characters).write some random text (minimum of 200 characters).write some random text (minimum of 200 characters).write some random text (minimum of 200 characters).";
+	
 	
 	
 	// LOGIN screen
@@ -26,5 +28,7 @@ public class WalletHubElements {
 	public static final String REVIEW_POLICY_HEALTH = "//form[@id=\"reviewform\"]//ul/li/a[@data-target=\"Health\"]";
 	public static final String REVIEW_MESSAGE = "//form[@id=\"reviewform\"]//textarea[@id=\"review-content\"]";
 	public static final String REVIEW_SUBMIT = "//form[@id=\"reviewform\"]//input[@value=\"Submit\"]";
-	public static final String REVIEW_SUCESSFULMESSAGE = "//div[@id=\"review\"]/div/h1";
+	
+	//public static final String REVIEW_SUCESSFULMESSAGE = "//div[@id=\"review\"]/div/h1";
+	public static final String REVIEW_MESSAGE_RECORDED = "//form[@id=\"reviewform\"]/div[2]/p";
 }
