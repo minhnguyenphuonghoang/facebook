@@ -1,0 +1,39 @@
+!SESSION 2016-12-22 19:16:18.314 -----------------------------------------------
+eclipse.buildId=4.6.1.M20160907-1200
+java.version=1.8.0_111
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -keyring /Users/minhnguyen/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.java.product -keyring /Users/minhnguyen/.eclipse_keyring
+
+!ENTRY org.eclipse.core.net 1 0 2016-12-22 19:16:44.790
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.testng.eclipse 1 0 2016-12-22 19:22:38.611
+!MESSAGE [TestNGLaunchShortcut] Examining Java element:facebookmessage [in src [in WalletHubTestNGDemo]]
+  FacebookElements.java (not open)
+  [Working copy] FacebookMessage.java
+    package facebookmessage
+    import org.testng.annotations.Test
+    import com.thoughtworks.selenium.Wait
+    import org.testng.annotations.BeforeTest
+    import org.openqa.selenium.WebDriver
+    import org.openqa.selenium.firefox.FirefoxDriver
+    import org.openqa.selenium.support.ui.WebDriverWait
+    import org.testng.annotations.AfterTest
+    class FacebookMessage
+      WebDriver driver
+      Wait wait
+      void postAFacebookMessage()
+      void beforeTest()
+      void afterTest()
+      void inputEmailAddress(String)
+      void inputPassword(String)
+
+!ENTRY org.testng.eclipse 1 0 2016-12-22 19:22:39.056
+!MESSAGE [TestNGLaunchConfigurationDelegate] Launching:
+  Classpath: /Users/minhnguyen/.p2/pool/plugins/org.testng.eclipse_6.10.0.201612030230/lib/testng-remote.jar /Volumes/Data/facebook/facebook/WalletHubTestNGDemo/bin /Users/minhnguyen/.p2/pool/plugins/org.testng.eclipse_6.10.0.201612030230/lib/testng.jar /Users/minhnguyen/.p2/pool/plugins/org.testng.eclipse_6.10.0.201612030230/lib/jcommander.jar /Users/minhnguyen/.p2/pool/plugins/org.testng.eclipse_6.10.0.201612030230/lib/bsh-2.0b4.jar /Users/minhnguyen/.p2/pool/plugins/org.testng.eclipse_6.10.0.201612030230/lib/snakeyaml.jar /Volumes/Data/facebook/facebook/WalletHubTestNGDemo/Libraries/selenium-java-2.53.1.jar
+  VMArgs:    -ea
+  Class:     org.testng.remote.RemoteTestNG
+  Args:      -serport 53468 -protocol json -d /Volumes/Data/facebook/facebook/WalletHubTestNGDemo/test-output /var/folders/60/524ylwhs06jf5rh4jyjngvmc0000gn/T/testng-eclipse-311703805/testng-customsuite.xml
+java -ea -classpath /Users/minhnguyen/.p2/pool/plugins/org.testng.eclipse_6.10.0.201612030230/lib/testng-remote.jar:/Volumes/Data/facebook/facebook/WalletHubTestNGDemo/bin:/Users/minhnguyen/.p2/pool/plugins/org.testng.eclipse_6.10.0.201612030230/lib/testng.jar:/Users/minhnguyen/.p2/pool/plugins/org.testng.eclipse_6.10.0.201612030230/lib/jcommander.jar:/Users/minhnguyen/.p2/pool/plugins/org.testng.eclipse_6.10.0.201612030230/lib/bsh-2.0b4.jar:/Users/minhnguyen/.p2/pool/plugins/org.testng.eclipse_6.10.0.201612030230/lib/snakeyaml.jar:/Volumes/Data/facebook/facebook/WalletHubTestNGDemo/Libraries/selenium-java-2.53.1.jar org.testng.remote.RemoteTestNG -serport 53468 -protocol json -d /Volumes/Data/facebook/facebook/WalletHubTestNGDemo/test-output /var/folders/60/524ylwhs06jf5rh4jyjngvmc0000gn/T/testng-eclipse-311703805/testng-customsuite.xml

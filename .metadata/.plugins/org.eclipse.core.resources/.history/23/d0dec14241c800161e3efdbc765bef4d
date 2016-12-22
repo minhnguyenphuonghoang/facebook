@@ -1,0 +1,66 @@
+package facebookmessage;
+
+import org.testng.annotations.Test;
+
+import com.thoughtworks.selenium.Wait;
+
+import org.testng.annotations.BeforeTest;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterTest;
+
+
+
+
+public class FacebookMessage {
+	
+	
+	
+	
+	static WebDriver driver;
+    static Wait wait;
+  @Test
+  public void postAFacebookMessage() {
+//	  System.out.println(FacebookElements.SIGNIN_EMAILADDRESS);
+	  inputEmailAddress("thebluesunset1@gmail.com");
+	  inputPassword("Bommeo123");
+	  driver = new FirefoxDriver();
+      driver.get("http://www.google.com/");
+  }
+  @BeforeTest
+  public void beforeTest() {
+	  
+	  
+	  
+  }
+
+  @AfterTest
+  public void afterTest() {
+	  System.out.println("Closing browser...");
+	  driver.close();
+	  
+  }
+  
+  
+  // keywords
+  
+  private void inputEmailAddress(String emailAddress){
+	  try{
+		  System.out.println("input email address");
+	  } catch (Exception e) {
+		  System.out.println(e);
+	  }
+	  
+  }
+  
+  
+  private void inputPassword(String password){
+	  try{
+		  System.out.println("input password");
+	  } catch (Exception e) {
+		  System.out.println(e);
+	  }
+  }
+
+}

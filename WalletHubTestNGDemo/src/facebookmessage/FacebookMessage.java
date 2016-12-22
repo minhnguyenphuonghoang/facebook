@@ -1,13 +1,25 @@
 package facebookmessage;
 
 import org.testng.annotations.Test;
+
+import com.thoughtworks.selenium.Wait;
+
 import org.testng.annotations.BeforeTest;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 
 
 
 
 public class FacebookMessage {
+	
+	
+	
+	
+	static WebDriver driver;
+    static Wait wait;
   @Test
   public void postAFacebookMessage() {
 //	  System.out.println(FacebookElements.SIGNIN_EMAILADDRESS);
@@ -17,16 +29,14 @@ public class FacebookMessage {
   }
   @BeforeTest
   public void beforeTest() {
-	  
-	  
-	  
+	  driver = new FirefoxDriver();
+      driver.get("http://www.google.com/");
   }
 
   @AfterTest
   public void afterTest() {
-	  
-	  
-	  
+	  System.out.println("Closing browser...");
+	  driver.close();
   }
   
   
