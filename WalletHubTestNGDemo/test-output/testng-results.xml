@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="45" started-at="2016-12-22T10:06:52Z" finished-at="2016-12-22T10:06:52Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="45" started-at="2016-12-22T10:06:52Z" finished-at="2016-12-22T10:06:52Z">
+      <class name="facebookmessage.FacebookMessage">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:facebookmessage.FacebookMessage@1810399e]" name="beforeTest" is-config="true" duration-ms="9" started-at="2016-12-22T17:06:52Z" finished-at="2016-12-22T17:06:52Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method status="PASS" signature="postAFacebookMessage()[pri:0, instance:facebookmessage.FacebookMessage@1810399e]" name="postAFacebookMessage" duration-ms="8" started-at="2016-12-22T17:06:52Z" finished-at="2016-12-22T17:06:52Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- postAFacebookMessage -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:facebookmessage.FacebookMessage@1810399e]" name="afterTest" is-config="true" duration-ms="0" started-at="2016-12-22T17:06:52Z" finished-at="2016-12-22T17:06:52Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- facebookmessage.FacebookMessage -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
