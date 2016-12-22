@@ -8,7 +8,7 @@ public class WalletHubElements {
 	public static final String USERNAME = "test_inscomp@evolutionfinance.com";
 	public static final String PASSWORD = "Abcd123*";
 	public static final long TIMEOUT = 10;
-	public static final String MESSAGE = "\"write some random text (minimum of 200 characters).write some random text (minimum of 200 characters).write some random text (minimum of 200 characters).write some random text (minimum of 200 characters).write some random text (minimum of 200 characters).";
+	public static final String MESSAGE = "write some random text (minimum of 200 characters).write some random text (minimum of 200 characters).write some random text (minimum of 200 characters).write some random text (minimum of 200 characters).write some random text (minimum of 200 characters).";
 	
 	
 	

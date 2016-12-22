@@ -39,7 +39,7 @@ public class WalletHubReview {
 		verifyMessageAfterPosted(WalletHubElements.MESSAGE);
 		
 		
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 	}
 	
 	
@@ -83,6 +83,7 @@ public class WalletHubReview {
 	private void writeAReviewMessage(String reviewMessage){
 		try{
 			WebElement reviewMessageElement = new WebDriverWait(driver, WalletHubElements.TIMEOUT).until(ExpectedConditions.presenceOfElementLocated(By.xpath(WalletHubElements.REVIEW_MESSAGE)));
+			reviewMessageElement.clear();
 			reviewMessageElement.sendKeys(reviewMessage);
 			
 		} catch (Exception e) {
@@ -101,8 +102,10 @@ public class WalletHubReview {
 	
 	private void verifyMessageAfterPosted(String message){
 		try{
+			new WebDriverWait(driver, 10).until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(WalletHubElements.REVIEW_SUBMIT)));
 			WebElement reviewMessageElement = new WebDriverWait(driver, WalletHubElements.TIMEOUT).until(ExpectedConditions.presenceOfElementLocated(By.xpath(WalletHubElements.REVIEW_MESSAGE_RECORDED)));
 			String currentText = reviewMessageElement.getText();
+			currentText = currentText.replaceAll("\n", " ");
 			Assert.assertEquals(currentText, message);
 		} catch (Exception e) {
 			System.out.println(e);
