@@ -3,13 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="facebookmessage.FacebookMessage">
+      <class name="wallethub.WalletHubReview">
         <methods>
-          <include name="postAFacebookMessage"/>
-          <include name="beforeTest"/>
+          <include name="f"/>
           <include name="afterTest"/>
+          <include name="beforeTest"/>
         </methods>
-      </class> <!-- facebookmessage.FacebookMessage -->
+      </class> <!-- wallethub.WalletHubReview -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

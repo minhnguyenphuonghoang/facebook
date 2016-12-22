@@ -1,7 +1,7 @@
 package facebookmessage;
 
 public class FacebookElements {
-	public static final String BASED_URD = "https://www.facebook.com/";
+	public static final String BASED_URL = "https://www.facebook.com/";
 	public static final String MESSAGE = "Hello World";
 	public static final long TIMEOUT = 10;
 	
@@ -12,7 +12,7 @@ public class FacebookElements {
 	// Sign In screen
 	public static final String SIGNIN_EMAILADDRESS = "//input[@id=\"email\"]";
 	public static final String SIGNIN_PASSWORD = "//input[@id=\"pass\"]"; 
-	public static final String SIGNIN_SIGNIN = "//label[@id=\"loginbutton\"]/input";
+	public static final String SIGNIN_SIGNIN = "//label[@id=\"loginbutton\"]";
 	
 	
 	
