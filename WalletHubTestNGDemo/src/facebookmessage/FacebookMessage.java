@@ -3,14 +3,17 @@ package facebookmessage;
 import org.testng.annotations.Test;
 
 
-
 import org.testng.annotations.BeforeTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 
 
@@ -37,12 +40,33 @@ public class FacebookMessage {
 		Thread.sleep(1000); // sleep 1 second after message was input
 		clickPost();
 		
+		// 3. Verify message after posted
+		verifyMessageAfterPosted(FacebookElements.MESSAGE);
+		
 		Thread.sleep(5000);
 	}
   
 	@BeforeTest
 	public void beforeTest() {
-		driver = new ChromeDriver();
+		switch (FacebookElements.BROWSER_TYPE) {
+		case "gc":
+			driver = new ChromeDriver();
+			break;
+		case "ff":
+			driver = new FirefoxDriver();
+			break;
+		case "safari":
+			driver = new SafariDriver();
+			break;
+		case "ie":
+			driver = new InternetExplorerDriver();
+			break;
+		default:
+			System.out.println("Incorrect browser_type=" + FacebookElements.BROWSER_TYPE);
+			Assert.assertFalse(false);
+			break;
+		}
+		
 		driver.manage().window().maximize();
 		driver.get(FacebookElements.BASED_URL);
 	}
@@ -62,6 +86,17 @@ public class FacebookMessage {
 		new WebDriverWait(driver, FacebookElements.TIMEOUT).until(ExpectedConditions.presenceOfElementLocated(By.xpath(FacebookElements.SIGNIN_SIGNIN)));
 	}
 	
+	private void verifyMessageAfterPosted(String message){
+		try{
+			new WebDriverWait(driver, 10).until(ExpectedConditions.textToBe(By.xpath(FacebookElements.HOME_MESSAGEPANEL_MESSAGE), ""));
+			
+			WebElement postedMessage = new WebDriverWait(driver, FacebookElements.TIMEOUT).until(ExpectedConditions.presenceOfElementLocated(By.xpath(FacebookElements.HOME_MESSAGE_AFTERPOSTED)));
+			String currentText = postedMessage.getText();
+			Assert.assertEquals(currentText, message);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
 	
 	private void inputEmailAddress(String emailAddress){
 		try{

@@ -5,6 +5,7 @@ import facebookmessage.FacebookElements;
 public class WalletHubElements {
 	public static final String URL_SIGNIN = "https://wallethub.com/join/login";
 	public static final String URL_REVIEW = "https://wallethub.com/profile/test_insurance_company/";
+	public static final String BROWSER_TYPE = "gc";
 	public static final String USERNAME = "test_inscomp@evolutionfinance.com";
 	public static final String PASSWORD = "Abcd123*";
 	public static final long TIMEOUT = 10;
